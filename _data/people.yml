@@ -1,0 +1,26 @@
+- name: Alice
+  age: 32
+  contact_method: email
+  zip_code: 12345
+  skills:
+    - HTML
+    - CSS
+    - JavaScript
+
+- name: Bob
+  age: 28
+  contact_method: phone
+  zip_code: 56789
+  skills:
+    - Ruby
+    - Rails
+    - PostgreSQL
+
+- name: Charlie
+  age: 25
+  contact_method: mail
+  zip_code: 98765
+  skills:
+    - Python
+    - Django
+    - SQLite

@@ -5,7 +5,7 @@ layout: default
 <h2>Girl Scouts</h2>
 
 <ul>
-  {% for girl in site.girls %}
+  {% for girl in site.data.girls %}
     <li>{{ girl.name }} - {{ girl.troop }}</li>
   {% endfor %}
 </ul>
