@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Girl Scout Directory</title>
+    <title>Directory of People</title>
   </head>
   <body>
-    <header>
-      <h1>Girl Scout Directory</h1>
-    </header>
-    <main>
-      {{ content }}
-    </main>
+    <h1>Directory of People</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Preferred Contact Method</th>
+          <th>Zip Code</th>
+          <th>Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for person in site.data.people %}
+        <tr>
+          <td>{{ person.name }}</td>
+          <td>{{ person.age }}</td>
+          <td>{{ person.contact_method }}</td>
+          <td>{{ person.zip_code }}</td>
+          <td>
+            <ul>
+              {% for skill in person.skills %}
+              <li>{{ skill }}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </body>
 </html>
