@@ -1,37 +1,92 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Directory of People</title>
-  </head>
-  <body>
-    <h1>Directory of People</h1>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Preferred Contact Method</th>
-          <th>Zip Code</th>
-          <th>Skills</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for person in site.data.people %}
-        <tr>
-          <td>{{ person.name }}</td>
-          <td>{{ person.age }}</td>
-          <td>{{ person.contact_method }}</td>
-          <td>{{ person.zip_code }}</td>
-          <td>
-            <ul>
-              {% for skill in person.skills %}
-              <li>{{ skill }}</li>
-              {% endfor %}
-            </ul>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </body>
+<head>
+  <style>
+    body {
+      background-color: #e4ff81;
+      color: #000000;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 36px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      margin-bottom: 50px;
+      border-bottom: 1px solid #00b0ff;
+      padding-bottom: 50px;
+    }
+
+    .person:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .person img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 30px;
+    }
+
+    .person h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .person p {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      background-color: #00b0ff;
+      color: #ffffff;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Girl Scout Directory</h1>
+  <div class="container">
+    {% for person in site.data.people %}
+      <div class="person">
+        <!-- <img src="{{ person.image }}" alt="{{ person.name }}"> -->
+        <img src="https://via.placeholder.com/150" alt="{{ person.name }}">
+        <div>
+          <h2>{{ person.name }}</h2>
+          <p>Age: {{ person.age }}</p>
+          <p>Preferred Contact Method: {{ person.contact }}</p>
+          <p>Zip Code: {{ person.zip }}</p>
+          <p>Skills:</p>
+          <div class="skills">
+            {% for skill in person.skills %}
+              <div class="skill">{{ skill }}</div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</body>
 </html>
